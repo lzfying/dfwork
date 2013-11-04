@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:jpa="http://aries.apache.org/xmlns/jpa/v1.1.0"
+	xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.1.0"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+		http://aries.apache.org/xmlns/jpa/v1.1.0 http://aries.apache.org/schemas/jpa/jpa_110.xsd
+		http://aries.apache.org/xmlns/transactions/v1.1.0 http://aries.apache.org/schemas/transaction/transactionv11.xsd
+	">
+
+	<service ref="roleManager"
+		interface="ar.com.oxen.nibiru.sample.system.RoleManager" />
+		
+	<service interface="ar.com.oxen.nibiru.i18n.api.MessageProvider"
+		ref="roleMessageProvider" />
+
+	<bean id="roleManager"
+		class="ar.com.oxen.nibiru.sample.system.JpaSecurityRoleManager">
+		<tx:transaction method="*" value="Required" />
+		<jpa:context property="entityManager" unitname="nibiruSecurity" />
+	</bean>
+	
+	<reference id="viewFactory" interface="ar.com.oxen.nibiru.ui.api.view.ViewFactory" />
+	
+	<reference id="nibiruMessageSource" interface="ar.com.oxen.nibiru.i18n.api.MessageSource" />
+	
+	<reference id="messageSource" availability="optional"
+		interface="ar.com.oxen.nibiru.i18n.api.MessageSource" />
+	
+	<reference id="applicationAccessor"
+		interface="ar.com.oxen.nibiru.ui.vaadin.api.ApplicationAccessor" />
+		
+		
+	<reference id="eventBus" interface="ar.com.oxen.commons.eventbus.api.EventBus" />	
+		
+		
+	<reference id="extensionPointManager"
+		interface="ar.com.oxen.nibiru.extensionpoint.api.ExtensionPointManager" />
+
+
+	<bean id="roleMessageProvider"
+		class="ar.com.oxen.nibiru.i18n.generic.ResourceBundleMessageProvider">
+		<property name="baseName" value="ar.com.oxen.nibiru.role.generic.messages" />
+		<property name="resourceClassLoader">
+			<bean class="ar.com.oxen.nibiru.osgi.utils.BundleDelegatingClassLoader">
+				<argument ref="blueprintBundle" />
+			</bean>
+		</property>
+	</bean>
+	
+		
+	
+	<bean id="roleViewFactory"
+		class="ar.com.oxen.nibiru.sample.system.view.RoleViewFactory">
+		<property name="viewFactory" ref="viewFactory" />
+		<property name="messageSource" ref="messageSource" />
+		<property name="applicationAccessor" ref="applicationAccessor" />
+		<property name="roleManager" ref="roleManager" />
+	</bean>
+	
+	
+	
+	
+	<bean id="rolePresenterFactory"
+		class="ar.com.oxen.nibiru.sample.system.presenter.RolePresenterFactory">
+		
+	</bean>
+	
+	
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.sample.system.ModuleConfigurator">
+		<property name="eventBus" ref="eventBus" />
+		<property name="viewFactory" ref="roleViewFactory" />
+		<property name="presenterFactory" ref="rolePresenterFactory" />
+		<property name="extensionPointManager" ref="extensionPointManager" />
+	</bean>
+</blueprint>
