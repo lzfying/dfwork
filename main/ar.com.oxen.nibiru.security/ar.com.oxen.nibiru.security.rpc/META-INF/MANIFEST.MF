@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Security RPC classes
+Bundle-SymbolicName: ar.com.oxen.nibiru.security.rpc
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.security.api
+Export-Package: ar.com.oxen.nibiru.security.rpc,
+ ar.com.oxen.nibiru.security.rpc.impl

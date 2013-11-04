@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: UI Utils
+Bundle-SymbolicName: ar.com.oxen.nibiru.ui.utils
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.commons.eventbus.api,
+ ar.com.oxen.commons.exception.api,
+ ar.com.oxen.nibiru.i18n.api,
+ ar.com.oxen.nibiru.ui.api.extension,
+ ar.com.oxen.nibiru.ui.api.mvp,
+ ar.com.oxen.nibiru.ui.api.view
+Export-Package: ar.com.oxen.nibiru.ui.utils.dialog;uses:="ar.com.oxen.nibiru.ui.api.mvp,ar.com.oxen.nibiru.ui.api.view",
+ ar.com.oxen.nibiru.ui.utils.extension;uses:="ar.com.oxen.nibiru.ui.api.extension,ar.com.oxen.nibiru.ui.api.mvp",
+ ar.com.oxen.nibiru.ui.utils.mvp;uses:="ar.com.oxen.commons.eventbus.api,ar.com.oxen.nibiru.ui.api.mvp,ar.com.oxen.nibiru.i18n.api",
+ ar.com.oxen.nibiru.ui.utils.view;uses:="ar.com.oxen.nibiru.ui.api.mvp,ar.com.oxen.nibiru.i18n.api,ar.com.oxen.nibiru.ui.api.view"

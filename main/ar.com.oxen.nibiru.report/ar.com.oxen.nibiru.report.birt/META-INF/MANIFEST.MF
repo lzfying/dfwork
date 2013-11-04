@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BIRT report implementation
+Bundle-SymbolicName: ar.com.oxen.nibiru.report.birt
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.report.api,
+ org.eclipse.birt.core.exception,
+ org.eclipse.birt.report.engine.api,
+ org.eclipse.birt.report.engine.api.script.element,
+ org.eclipse.birt.report.model.api
+Export-Package: ar.com.oxen.nibiru.report.birt;uses:="ar.com.oxen.nibiru.report.api"

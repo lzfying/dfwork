@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JPA components
+Bundle-SymbolicName: ar.com.oxen.nibiru.jpa
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.conversation.api,
+ ar.com.oxen.nibiru.transaction.api,
+ javax.persistence;version="2.0.0",
+ javax.persistence.criteria;version="2.0.0",
+ javax.persistence.metamodel;version="2.0.0",
+ javax.transaction
+Export-Package: ar.com.oxen.nibiru.jpa

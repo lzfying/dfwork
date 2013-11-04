@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Autologin Security Module
+Bundle-SymbolicName: ar.com.oxen.nibiru.security.autologin
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.commons.eventbus.api,
+ ar.com.oxen.nibiru.application.api,
+ ar.com.oxen.nibiru.extensionpoint.api,
+ ar.com.oxen.nibiru.module.utils,
+ ar.com.oxen.nibiru.security.api,
+ ar.com.oxen.nibiru.ui.api.mvp
+Export-Package: ar.com.oxen.nibiru.security.autologin

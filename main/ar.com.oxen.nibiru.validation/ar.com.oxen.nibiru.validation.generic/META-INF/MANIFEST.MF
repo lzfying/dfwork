@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generic Validators
+Bundle-SymbolicName: ar.com.oxen.nibiru.validation.generic
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: ar.com.oxen.nibiru.validation.generic;uses:="ar.com.oxen.nibiru.validation.api"
+Import-Package: ar.com.oxen.nibiru.validation.api

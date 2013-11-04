@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Nibiru application services
+Bundle-SymbolicName: ar.com.oxen.nibiru.application.api
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.ui.api.mvp,
+ ar.com.oxen.nibiru.ui.api.view
+Export-Package: ar.com.oxen.nibiru.application.api;
+  uses:="ar.com.oxen.nibiru.application.api.main,
+   ar.com.oxen.nibiru.application.api.about,
+   ar.com.oxen.nibiru.ui.api.mvp,
+   ar.com.oxen.nibiru.application.api.login",
+ ar.com.oxen.nibiru.application.api.about;uses:="ar.com.oxen.nibiru.ui.api.mvp",
+ ar.com.oxen.nibiru.application.api.main;uses:="ar.com.oxen.nibiru.ui.api.mvp,ar.com.oxen.nibiru.ui.api.view"

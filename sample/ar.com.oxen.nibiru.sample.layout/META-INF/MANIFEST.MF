@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Layout main view sample
+Bundle-SymbolicName: ar.com.oxen.nibiru.sample.layout
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.commons.eventbus.api,
+ ar.com.oxen.nibiru.i18n.api,
+ ar.com.oxen.nibiru.ui.api.view,
+ ar.com.oxen.nibiru.ui.utils.view,
+ ar.com.oxen.nibiru.ui.vaadin.api,
+ ar.com.oxen.nibiru.ui.vaadin.application,
+ ar.com.oxen.nibiru.ui.vaadin.view,
+ ar.com.oxen.nibiru.ui.vaadin.view.adapter,
+ com.vaadin;version="6.8.9",
+ com.vaadin.data;version="6.8.9",
+ com.vaadin.data.util;version="6.8.9",
+ com.vaadin.terminal;version="6.8.9",
+ com.vaadin.ui;version="6.8.9",
+ org.vaadin.peter.contextmenu

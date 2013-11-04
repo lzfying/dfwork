@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="nibiru-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+    <feature name='nibiru-core' description='Nibiru core components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>war</feature>
+    	<feature>jndi</feature>
+    	<feature>jpa</feature>
+    	<feature>transaction</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.application/ar.com.oxen.nibiru.application.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.application/ar.com.oxen.nibiru.application.generic/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.application/ar.com.oxen.nibiru.application.generic.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.application/ar.com.oxen.nibiru.application.generic.presenter/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.application/ar.com.oxen.nibiru.application.generic.presenter.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.application/ar.com.oxen.nibiru.application.generic.view/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.application/ar.com.oxen.nibiru.application.generic.view.blueprint/${project.version}</bundle>
+        
+        <bundle>mvn:ar.com.oxen.nibiru.conversation/ar.com.oxen.nibiru.conversation.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.conversation/ar.com.oxen.nibiru.conversation.generic/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.conversation/ar.com.oxen.nibiru.conversation.generic.blueprint/${project.version}</bundle>
+        
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.bean/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.manager.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.manager.jpa/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.ui.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.ui.generic.presenter/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.ui.generic.presenter.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.ui.generic.view/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.ui.generic.view.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.crud/ar.com.oxen.nibiru.crud.utils/${project.version}</bundle>
+        
+        <bundle>mvn:ar.com.oxen.nibiru.extensionpoint/ar.com.oxen.nibiru.extensionpoint.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.extensionpoint/ar.com.oxen.nibiru.extensionpoint.generic/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.extensionpoint/ar.com.oxen.nibiru.extensionpoint.generic.blueprint/${project.version}</bundle>
+        
+        <bundle>mvn:ar.com.oxen.nibiru.i18n/ar.com.oxen.nibiru.i18n.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.i18n/ar.com.oxen.nibiru.i18n.generic/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.i18n/ar.com.oxen.nibiru.i18n.generic.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.i18n/ar.com.oxen.nibiru.i18n.session/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.i18n/ar.com.oxen.nibiru.i18n.session.blueprint/${project.version}</bundle>
+
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.api/${project.version}</bundle>
+        
+        <bundle>mvn:ar.com.oxen.nibiru.session/ar.com.oxen.nibiru.session.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.session/ar.com.oxen.nibiru.session.http/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.session/ar.com.oxen.nibiru.session.http.blueprint/${project.version}</bundle>
+        
+        <bundle>mvn:ar.com.oxen.nibiru.transaction/ar.com.oxen.nibiru.transaction.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.transaction/ar.com.oxen.nibiru.transaction.jta/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.transaction/ar.com.oxen.nibiru.transaction.jta.blueprint/${project.version}</bundle>
+        
+        <bundle>mvn:ar.com.oxen.nibiru.ui/ar.com.oxen.nibiru.ui.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.ui/ar.com.oxen.nibiru.ui.utils/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.ui/ar.com.oxen.nibiru.ui.vaadin/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.ui/ar.com.oxen.nibiru.ui.vaadin.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.ui/ar.com.oxen.nibiru.ui.vaadin.fragment/${project.version}</bundle>
+        
+        <bundle>mvn:ar.com.oxen.nibiru.validation/ar.com.oxen.nibiru.validation.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.validation/ar.com.oxen.nibiru.validation.generic/${project.version}</bundle>
+
+        <bundle>mvn:ar.com.oxen.nibiru.support/ar.com.oxen.nibiru.commons.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.support/ar.com.oxen.nibiru.datasource.dbcp.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.support/ar.com.oxen.nibiru.http.utils/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.support/ar.com.oxen.nibiru.jpa/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.support/ar.com.oxen.nibiru.jpa.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.support/ar.com.oxen.nibiru.module.utils/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.support/ar.com.oxen.nibiru.osgi.utils/${project.version}</bundle>
+    	
+    	<!-- Oxen Java Commons bundles -->
+        <bundle>mvn:ar.com.oxen.commons/ar.com.oxen.commons/${commons-version}</bundle>
+    	
+    	<!-- 3rd party bundles -->
+        <bundle>mvn:com.googlecode.guava-osgi/guava-osgi/9.0.0</bundle>
+        <bundle>mvn:javax.inject/com.springsource.javax.inject/1.0.0</bundle>
+        <bundle>mvn:com.vaadin/vaadin/6.8.9</bundle>
+        <bundle>mvn:org.vaadin.peter/contextmenu/3.1.0/jar/osgi</bundle>
+        <bundle>mvn:commons-codec/commons-codec/1.7</bundle>
+        <bundle>mvn:commons-collections/commons-collections/3.2.1</bundle>
+        <bundle>mvn:commons-pool/commons-pool/1.5.4</bundle>
+        <bundle>mvn:commons-dbcp/commons-dbcp/1.4</bundle>
+        <bundle>mvn:commons-lang/commons-lang/2.6</bundle>
+        <bundle>wrap:mvn:net.sourceforge.serp/serp/1.13.1</bundle>
+        <bundle>mvn:org.apache.openjpa/openjpa/2.1.1</bundle>
+        <bundle>mvn:org.apache.aries/org.apache.aries.util/0.4</bundle>
+        <bundle>mvn:org.mvel/mvel2/2.0.19</bundle>
+    </feature>
+
+    <feature name='nibiru-license' description='Nibiru license components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-core</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.license/ar.com.oxen.nibiru.license.module/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.license/ar.com.oxen.nibiru.license.store.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.license/ar.com.oxen.nibiru.license.store.jpa/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.license/ar.com.oxen.nibiru.license.store.jpa.blueprint/${project.version}</bundle>
+    </feature>
+
+    <feature name='nibiru-mail' description='Nibiru mail components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-core</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.mail/ar.com.oxen.nibiru.mail.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.mail/ar.com.oxen.nibiru.mail.javamail/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.mail/ar.com.oxen.nibiru.mail.javamail.blueprint/${project.version}</bundle>
+    	
+    	<!-- 3rd party bundles -->
+        <bundle>mvn:javax.mail/com.springsource.javax.mail/1.4.1</bundle>
+        <bundle>mvn:javax.activation/com.springsource.javax.activation/1.1.1</bundle>
+    </feature>
+
+	<feature name='nibiru-report' description='Nibiru report components'
+		version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-core</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.report/ar.com.oxen.nibiru.report.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.report/ar.com.oxen.nibiru.report.crud/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.report/ar.com.oxen.nibiru.report.module/${project.version}</bundle>
+    </feature>
+    
+    <feature name='nibiru-report-jasper' description='Nibiru report components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-report</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.report/ar.com.oxen.nibiru.report.jasper/${project.version}</bundle>
+        
+    	<!-- 3rd party bundles -->
+        <bundle>mvn:net.sf.jasperreports/jasperreports/5.0.1</bundle>
+        <bundle>mvn:commons-digester/commons-digester/2.1</bundle>
+        <bundle>mvn:commons-beanutils/commons-beanutils/1.8.0</bundle>
+        <bundle>mvn:org.antlr/com.springsource.antlr/2.7.6</bundle>
+        <bundle>mvn:com.lowagie.text/com.lowagie.text/2.1.7/jar/osgi</bundle>
+    </feature>
+    
+    <feature name='nibiru-report-birt' description='Nibiru report components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-report</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.report/ar.com.oxen.nibiru.report.birt/${project.version}</bundle>
+    </feature>
+
+	<feature name='nibiru-security' description='Nibiru security components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-core</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.api/${project.version}</bundle>
+    </feature>
+
+	<feature name='nibiru-security-rpc' description='Nibiru security RPC components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-security</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.rpc/${project.version}</bundle>
+    </feature>
+    
+	<feature name='nibiru-security-common' description='Nibiru security UI components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-security</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.manager.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.manager.jpa/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.manager.jpa.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.module/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.profile.session/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.profile.session.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.ui.api/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.ui.generic.presenter/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.ui.generic.presenter.blueprint/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.ui.generic.view/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.ui.generic.view.blueprint/${project.version}</bundle>
+    </feature>
+    
+	<feature name='nibiru-security-generic' description='Nibiru generic security components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-security-common</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.generic/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.generic.blueprint/${project.version}</bundle>
+    </feature>
+    
+	<feature name='nibiru-security-spring' description='Nibiru Spring security components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-security-common</feature>
+    	<feature version="[3.0.7,4)">spring</feature>
+    	<feature version="[3.0.7,4)">spring-web</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.spring/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.spring.blueprint/${project.version}</bundle>
+        
+    	<!-- 3rd party bundles -->
+        <bundle>mvn:org.springframework.security/spring-security-core/${spring-security-version}</bundle>
+        <bundle>mvn:org.springframework.security/spring-security-web/${spring-security-version}</bundle>
+        <bundle>mvn:org.springframework.security/spring-security-config/${spring-security-version}</bundle>
+        <bundle>mvn:org.aopalliance/com.springsource.org.aopalliance/1.0.0</bundle>
+    </feature>
+    
+	<feature name='nibiru-security-autologin' description='Nibiru Spring security components' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-security</feature>
+    	
+    	<!-- Nibiru bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.autologin/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.security/ar.com.oxen.nibiru.security.autologin.blueprint/${project.version}</bundle>
+    </feature>
+    
+    <feature name='nibiru-sample' description='Nibiru sample app' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-core</feature>
+    	<feature>nibiru-mail</feature>
+    	<feature>nibiru-report-jasper</feature>
+    	
+    	<!-- Sample bundles -->
+        <bundle>mvn:ar.com.oxen.nibiru.sample/ar.com.oxen.nibiru.sample.domain/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.sample/ar.com.oxen.nibiru.sample.module/${project.version}</bundle>
+        <bundle>mvn:ar.com.oxen.nibiru.sample/ar.com.oxen.nibiru.sample.webapp/${project.version}</bundle>
+        
+    	<!-- 3rd party bundles -->
+        <bundle>mvn:com.h2database/com.springsource.org.h2/1.0.71</bundle>
+    </feature>
+
+    <feature name='nibiru-sample-autologin' description='Nibiru sample app with autologin' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-sample</feature>
+    	<feature>nibiru-security-autologin</feature>
+    </feature>
+
+    <feature name='nibiru-sample-security' description='Nibiru sample app with generic security' version='${project.version}' resolver='(obr)'>
+    	<!-- Required features -->
+    	<feature>nibiru-sample</feature>
+    	<feature>nibiru-security-generic</feature>
+    </feature>
+</features>

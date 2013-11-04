@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean id="authenticationService"
+		class="ar.com.oxen.nibiru.security.generic.GenericAuthenticationService">
+		<property name="session" ref="nibiruSession" />
+		<property name="securityManager" ref="securityManager" />
+		<property name="profile" ref="profile" />
+		<property name="hashService" ref="hashService" />
+	</bean>
+
+	<bean id="authorizationService"
+		class="ar.com.oxen.nibiru.security.generic.GenericAuthorizationService">
+		<property name="session" ref="nibiruSession" />
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+	<bean id="hashService"
+		class="ar.com.oxen.nibiru.security.generic.MessageDigestHashService">
+		<property name="algorithm" value="SHA-1" />
+	</bean>
+
+</beans>

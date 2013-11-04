@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	">
+
+	<bean name="securityManager"
+		class="ar.com.oxen.nibiru.security.manager.jpa.JpaSecurityManager">
+		<property name="entityManager" ref="securityManagerEm" />
+	</bean>
+
+	<!-- JPA -->
+	<bean id="securityManagerEmFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="nibiruSecurity" />
+		<property name="persistenceXmlLocation" value="classpath:ar/com/oxen/nibiru/security/manager/jpa/conf/jpa/persistence_standalone.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean name="securityManagerEm"
+		class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+		<property name="entityManagerFactory" ref="securityManagerEmFactory" />
+	</bean>
+
+	<!-- Transaction -->
+	<bean name="securityManagerTxManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="securityManagerEmFactory" />
+	</bean>
+
+	<tx:advice id="securityManagerTxAdvice" transaction-manager="securityManagerTxManager">
+		<tx:attributes>
+			<tx:method name="changePassword" propagation="REQUIRED" />
+			<tx:method name="getUserData" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames" value="securityManager" />
+		<property name="interceptorNames" value="securityManagerTxAdvice" />
+	</bean>
+</beans>

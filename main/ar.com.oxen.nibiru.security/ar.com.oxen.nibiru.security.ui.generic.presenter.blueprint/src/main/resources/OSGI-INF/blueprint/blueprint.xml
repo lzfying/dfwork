@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	">
+
+	<service interface="ar.com.oxen.nibiru.security.ui.api.SecurityPresenterFactory"
+		ref="securityPresenterFactory" />
+
+	<reference id="authenticationService"
+		interface="ar.com.oxen.nibiru.security.api.AuthenticationService" />
+
+	<reference id="securityManager"
+		interface="ar.com.oxen.nibiru.security.manager.api.SecurityManager" />
+
+	<reference id="hashService" interface="ar.com.oxen.nibiru.security.api.HashService" />
+
+	<reference id="eventBus" interface="ar.com.oxen.commons.eventbus.api.EventBus" />
+
+	<bean id="securityPresenterFactory" class="ar.com.oxen.nibiru.security.ui.generic.presenter.GenericSecurityPresenterFactory">
+		<property name="eventBus" ref="eventBus" />
+		<property name="authenticationService" ref="authenticationService" />
+		<property name="securityManager" ref="securityManager" />
+		<property name="hashService" ref="hashService" />
+	</bean>
+
+</blueprint>

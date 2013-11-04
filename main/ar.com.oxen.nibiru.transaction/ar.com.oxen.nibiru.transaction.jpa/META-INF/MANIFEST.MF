@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JPA Transaction implementation
+Bundle-SymbolicName: ar.com.oxen.nibiru.transaction.jpa
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.transaction.api,
+ javax.persistence,
+ javax.transaction
+Export-Package: ar.com.oxen.nibiru.transaction.jpa;uses:="javax.transaction,ar.com.oxen.nibiru.transaction.api,javax.persistence"

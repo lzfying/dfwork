@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean name="licenseMessageProvider"
+		class="ar.com.oxen.nibiru.i18n.generic.ResourceBundleMessageProvider">
+		<property name="baseName"
+			value="ar.com.oxen.nibiru.license.module.ui.i18n.messages" />
+		<property name="resourceClassLoader">
+			<bean
+				class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+				<property name="targetObject">
+					<bean
+						class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+						<property name="staticMethod" value="java.lang.Thread.currentThread" />
+						<property name="singleton" value="false" />
+					</bean>
+				</property>
+				<property name="targetMethod" value="getContextClassLoader" />
+				<property name="singleton" value="false" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.license.module.ModuleConfigurator">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="eventBus" ref="eventBus" />
+		<property name="viewFactory" ref="genericLicenseViewFactory" />
+		<property name="presenterFactory" ref="genericLicensePresenterFactory" />
+	</bean>
+
+	<bean name="genericLicenseViewFactory"
+		class="ar.com.oxen.nibiru.license.module.ui.impl.GenericLicenseViewFactory">
+		<property name="viewFactory" ref="viewFactory" />
+		<property name="messageSource" ref="nibiruMessageSource" />
+	</bean>
+
+	<bean name="genericLicensePresenterFactory"
+		class="ar.com.oxen.nibiru.license.module.ui.impl.GenericLicensePresenterFactory">
+		<property name="licenseStoreManager" ref="licenseStoreManager" />
+		<property name="eventBus" ref="eventBus" />
+	</bean>
+</beans>

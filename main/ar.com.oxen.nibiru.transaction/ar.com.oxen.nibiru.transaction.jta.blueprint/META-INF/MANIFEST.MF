@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JTA transaction blueprint configuration
+Bundle-SymbolicName: ar.com.oxen.nibiru.transaction.jta.blueprint
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.transaction.api,
+ ar.com.oxen.nibiru.transaction.jta,
+ javax.transaction;version="1.1.0"

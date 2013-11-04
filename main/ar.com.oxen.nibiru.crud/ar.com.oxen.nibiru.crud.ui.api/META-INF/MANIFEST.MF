@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CRUD UI API
+Bundle-SymbolicName: ar.com.oxen.nibiru.crud.ui.api
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: ar.com.oxen.nibiru.crud.ui.api;
+  uses:="ar.com.oxen.nibiru.crud.ui.api.form,
+   ar.com.oxen.nibiru.ui.api.mvp,
+   ar.com.oxen.nibiru.crud.ui.api.list,
+   ar.com.oxen.nibiru.crud.manager.api",
+ ar.com.oxen.nibiru.crud.ui.api.form;uses:="ar.com.oxen.nibiru.ui.api.mvp,ar.com.oxen.nibiru.validation.api,ar.com.oxen.nibiru.crud.manager.api",
+ ar.com.oxen.nibiru.crud.ui.api.list;uses:="ar.com.oxen.nibiru.ui.api.mvp"
+Import-Package: ar.com.oxen.nibiru.crud.manager.api,
+ ar.com.oxen.nibiru.ui.api.mvp,
+ ar.com.oxen.nibiru.ui.api.view,
+ ar.com.oxen.nibiru.validation.api

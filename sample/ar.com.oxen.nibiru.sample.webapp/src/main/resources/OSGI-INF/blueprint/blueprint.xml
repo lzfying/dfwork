@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	">
+
+	<reference id="applicationAccessor"
+		interface="ar.com.oxen.nibiru.ui.vaadin.api.ApplicationAccessor" />
+
+	<service interface="javax.servlet.Filter">
+		<service-properties>
+			<entry key="urlPatterns" value="/*" />
+		</service-properties>
+		<bean class="ar.com.oxen.nibiru.http.utils.SessionHolderFilter" />
+	</service>
+
+	<service ref="nibiruServlet" interface="javax.servlet.http.HttpServlet">
+		<service-properties>
+			<entry key="alias" value="/sample" />
+			<entry key="widgetset" value="ar.com.oxen.nibiru.ui.vaadin.NibiruWidgetset" />
+		</service-properties>
+	</service>
+
+	<service ref="nibiruServlet" interface="javax.servlet.http.HttpServlet">
+		<service-properties>
+			<entry key="alias" value="/VAADIN" />
+			<entry key="widgetset" value="ar.com.oxen.nibiru.ui.vaadin.NibiruWidgetset" />
+		</service-properties>
+	</service>
+
+	<bean id="nibiruServlet"
+		class="ar.com.oxen.nibiru.ui.vaadin.servlet.NibiruApplicationServlet">
+		<property name="applicationAccessor" ref="applicationAccessor" />
+	</bean>
+
+</blueprint>

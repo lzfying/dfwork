@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>Niburu non-OSGi sample</display-name>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<filter>
+		<filter-name>sessionHolderFilter</filter-name>
+		<filter-class>ar.com.oxen.nibiru.http.utils.SessionHolderFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>sessionHolderFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<servlet>
+		<display-name>Nibiru Servlet</display-name>
+		<servlet-name>nibiruServlet</servlet-name>
+		<servlet-class>ar.com.oxen.nibiru.spring.utils.DelegatingServletProxy</servlet-class>
+		<init-param>
+			<param-name>widgetset</param-name>
+			<param-value>ar.com.oxen.nibiru.ui.vaadin.NibiruWidgetset</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>nibiruServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>nibiruServlet</servlet-name>
+		<url-pattern>/VAADIN/*</url-pattern>
+	</servlet-mapping>
+</web-app>

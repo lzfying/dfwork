@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Custom login view sample
+Bundle-SymbolicName: ar.com.oxen.nibiru.sample.loginview
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.i18n.api,
+ ar.com.oxen.nibiru.security.ui.api,
+ ar.com.oxen.nibiru.security.ui.generic.view,
+ ar.com.oxen.nibiru.ui.api.mvp,
+ ar.com.oxen.nibiru.ui.api.view,
+ ar.com.oxen.nibiru.ui.utils.mvp,
+ ar.com.oxen.nibiru.ui.utils.view,
+ ar.com.oxen.nibiru.validation.api

@@ -1,0 +1,19 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="nibiruSecurity"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<class>ar.com.oxen.nibiru.security.manager.jpa.domain.Role</class>
+		<class>ar.com.oxen.nibiru.security.manager.jpa.domain.RoleGroup</class>
+		<class>ar.com.oxen.nibiru.security.manager.jpa.domain.User</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+			<property name="openjpa.jdbc.DBDictionary" value="h2" />
+			<property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+		</properties>
+	</persistence-unit>
+</persistence>

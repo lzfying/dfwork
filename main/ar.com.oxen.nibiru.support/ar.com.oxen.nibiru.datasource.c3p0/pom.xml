@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ar.com.oxen.nibiru</groupId>
+		<artifactId>ar.com.oxen.nibiru.support</artifactId>
+		<version>0.4-SNAPSHOT</version>
+	</parent>
+	<groupId>ar.com.oxen.nibiru.support</groupId>
+	<artifactId>ar.com.oxen.nibiru.datasource.c3p0</artifactId>
+	<name>ar.com.oxen.nibiru.datasource.c3p0</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+			<classifier>osgi</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.beans</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+	</dependencies>
+</project>

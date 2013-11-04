@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Session Profile implementation
+Bundle-SymbolicName: ar.com.oxen.nibiru.security.profile.session
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.security.api,
+ ar.com.oxen.nibiru.session.api
+Export-Package: ar.com.oxen.nibiru.security.profile.session

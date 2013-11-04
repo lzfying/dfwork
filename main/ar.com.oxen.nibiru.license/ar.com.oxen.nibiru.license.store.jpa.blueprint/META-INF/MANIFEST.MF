@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JPA License Store blueprint
+Bundle-SymbolicName: ar.com.oxen.nibiru.license.store.jpa.blueprint
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.license.store.api,
+ ar.com.oxen.nibiru.license.store.jpa,
+ javax.persistence;version="1.0.0"

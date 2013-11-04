@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	">
+
+	<service ref="crudViewFactory"
+		interface="ar.com.oxen.nibiru.crud.ui.api.CrudViewFactory" />
+
+	<reference id="viewFactory"
+		interface="ar.com.oxen.nibiru.ui.api.view.ViewFactory" />
+
+	<reference id="nibiruMessageSource"
+		interface="ar.com.oxen.nibiru.i18n.api.MessageSource" />
+
+	<reference id="localeHolder"
+		interface="ar.com.oxen.nibiru.i18n.api.LocaleHolder" />
+
+	<bean id="crudViewFactory"
+		class="ar.com.oxen.nibiru.crud.ui.generic.view.GenericCrudViewFactory">
+		<property name="viewFactory" ref="viewFactory" />
+		<property name="messageSource" ref="nibiruMessageSource" />
+		<property name="localeHolder" ref="localeHolder" />
+	</bean>
+
+</blueprint>

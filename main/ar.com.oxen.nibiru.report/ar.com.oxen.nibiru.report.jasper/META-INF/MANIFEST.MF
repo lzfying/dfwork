@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JasperReports report implementation
+Bundle-SymbolicName: ar.com.oxen.nibiru.report.jasper
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.report.api,
+ javax.sql,
+ net.sf.jasperreports.engine,
+ net.sf.jasperreports.engine.base
+Export-Package: ar.com.oxen.nibiru.report.jasper

@@ -1,0 +1,1 @@
+java -cp $(echo lib/*.jar | tr ' ' ':') ar.com.oxen.nibiru.license.cli.Authorizer $*

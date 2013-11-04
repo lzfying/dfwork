@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+
+
+	<import resource="classpath:/ar/com/oxen/nibiru/application/generic/conf/spring/context.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/application/generic/presenter/conf/spring/context.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/application/generic/view/conf/spring/context.xml" />
+        
+	<import resource="classpath:/ar/com/oxen/nibiru/conversation/generic/conf/spring/context.xml" />
+        
+	<import resource="classpath:/ar/com/oxen/nibiru/crud/ui/generic/presenter/conf/spring/context.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/crud/ui/generic/view/conf/spring/context.xml" />
+        
+	<import resource="classpath:/ar/com/oxen/nibiru/extensionpoint/generic/conf/spring/context.xml" />
+        
+	<import resource="classpath:/ar/com/oxen/nibiru/i18n/generic/conf/spring/context.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/i18n/session/conf/spring/context.xml" />
+        
+	<import resource="classpath:/ar/com/oxen/nibiru/session/http/conf/spring/context.xml" />
+        
+	<import resource="classpath:/ar/com/oxen/nibiru/transaction/jpa/conf/spring/context.xml" />
+        
+	<import resource="classpath:/ar/com/oxen/nibiru/ui/vaadin/conf/spring/context.xml" />
+
+	<import resource="classpath:/ar/com/oxen/nibiru/commons/conf/spring/context.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/datasource/dbcp/conf/spring/context.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/jpa/conf/spring/context.xml" />
+
+</beans>

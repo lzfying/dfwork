@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	">
+
+	<service ref="authenticationService"
+		interface="ar.com.oxen.nibiru.security.api.AuthenticationService" />
+
+	<service ref="authorizationService"
+		interface="ar.com.oxen.nibiru.security.api.AuthorizationService" />
+
+	<service ref="hashService" interface="ar.com.oxen.nibiru.security.api.HashService" />
+
+	<reference id="profile" interface="ar.com.oxen.nibiru.security.api.Profile" />
+
+	<reference id="nibiruSession" interface="ar.com.oxen.nibiru.session.api.Session" />
+
+	<reference id="securityManager"
+		interface="ar.com.oxen.nibiru.security.manager.api.SecurityManager" />
+
+	<bean id="authenticationService"
+		class="ar.com.oxen.nibiru.security.spring.SpringAuthenticationService">
+		<property name="session" ref="nibiruSession" />
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="securityManager" ref="securityManager" />
+		<property name="profile" ref="profile" />
+	</bean>
+
+	<bean id="authorizationService"
+		class="ar.com.oxen.nibiru.security.spring.SpringAuthorizationService">
+		<property name="session" ref="nibiruSession" />
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+	<bean id="hashService"
+		class="ar.com.oxen.nibiru.security.spring.PasswordEncoderHashService">
+		<property name="passwordEncoder" ref="passwordEncoder" />
+	</bean>
+
+	<bean id="authenticationManager"
+		class="org.springframework.security.authentication.ProviderManager">
+		<property name="providers">
+			<list>
+				<bean
+					class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+					<property name="userDetailsService" ref="userDetailsService" />
+					<property name="passwordEncoder" ref="passwordEncoder" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userDetailsService"
+		class="ar.com.oxen.nibiru.security.spring.SecurityManagerUserDetailsService">
+		<property name="securityManager" ref="securityManager" />
+		<property name="hashService" ref="hashService" />
+	</bean>
+	
+	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/>
+
+</blueprint>

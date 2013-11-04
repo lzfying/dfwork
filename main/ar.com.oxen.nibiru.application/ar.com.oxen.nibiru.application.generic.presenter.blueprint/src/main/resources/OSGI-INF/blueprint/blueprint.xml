@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	">
+
+	<service ref="applicationPresenterFactory"
+		interface="ar.com.oxen.nibiru.application.api.ApplicationPresenterFactory" />
+ 
+	<reference id="extensionPointManager"
+		interface="ar.com.oxen.nibiru.extensionpoint.api.ExtensionPointManager" />
+
+	<reference id="profile"
+		interface="ar.com.oxen.nibiru.security.api.Profile" />
+		
+	<reference id="authorizationService"
+		interface="ar.com.oxen.nibiru.security.api.AuthorizationService" />
+ 
+	<bean id="applicationPresenterFactory"
+		class="ar.com.oxen.nibiru.application.generic.presenter.GenericApplicationPresenterFactory">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="profile" ref="profile" />
+		<property name="authorizationService" ref="authorizationService" />
+	</bean>
+</blueprint>

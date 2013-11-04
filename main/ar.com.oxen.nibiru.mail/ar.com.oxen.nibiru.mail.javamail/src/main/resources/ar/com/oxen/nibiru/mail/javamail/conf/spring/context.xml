@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean name="mailService" init-method="init"
+		class="ar.com.oxen.nibiru.mail.javamail.JavaMailService">
+		<property name="username" value="$mail{username}" />
+		<property name="password" value="$mail{password}" />
+		<property name="host" value="$mail{host}" />
+		<property name="port" value="$mail{port}" />
+		<property name="startTls" value="$mail{startTls}" />
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:mail.properties" />
+		<property name="placeholderPrefix" value="$mail{" />
+	</bean>
+
+</beans>

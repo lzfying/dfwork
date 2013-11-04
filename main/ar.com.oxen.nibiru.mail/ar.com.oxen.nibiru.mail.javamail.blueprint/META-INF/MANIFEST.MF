@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JavaMail mail service
+Bundle-SymbolicName: ar.com.oxen.nibiru.mail.javamail.blueprint
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.mail.api,
+ ar.com.oxen.nibiru.mail.javamail

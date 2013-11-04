@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ar.com.oxen.nibiru.support</artifactId>
+		<groupId>ar.com.oxen.nibiru</groupId>
+		<version>0.4-SNAPSHOT</version>
+	</parent>
+	<groupId>ar.com.oxen.nibiru.support</groupId>
+	<artifactId>ar.com.oxen.nibiru.jpa.blueprint</artifactId>
+	<name>ar.com.oxen.nibiru.jpa.blueprint</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>ar.com.oxen.nibiru.support</groupId>
+			<artifactId>ar.com.oxen.nibiru.jpa</artifactId>
+			<version>${nibiru-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+	</dependencies>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean name="applicationAccessor"
+		class="ar.com.oxen.nibiru.ui.vaadin.application.SimpleApplicationAccessor">
+		<property name="eventBus" ref="eventBus" />
+		<property name="localeHolder" ref="localeHolder" />
+	</bean>
+
+	<bean id="viewFactory" class="ar.com.oxen.nibiru.ui.vaadin.view.VaadinViewFactory">
+		<property name="applicationAccessor" ref="applicationAccessor" />
+	</bean>
+</beans>

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generic application presenters blueprint configuration
+Bundle-SymbolicName: ar.com.oxen.nibiru.application.generic.presenter.blueprint
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.commons.eventbus.api,
+ ar.com.oxen.nibiru.application.api,
+ ar.com.oxen.nibiru.application.generic.presenter,
+ ar.com.oxen.nibiru.extensionpoint.api,
+ ar.com.oxen.nibiru.security.api

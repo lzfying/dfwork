@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+    http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<import resource="classpath:/ar/com/oxen/nibiru/standalone/conf/spring/core.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/standalone/conf/spring/security-generic.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/standalone/conf/spring/report.xml" />
+	<import resource="classpath:/ar/com/oxen/nibiru/standalone/conf/spring/mail.xml" />
+
+	<import resource="classpath:/ar/com/oxen/nibiru/sample/module/conf/spring/context.xml" />
+
+	<bean id="nibiruServlet"
+		class="ar.com.oxen.nibiru.ui.vaadin.servlet.NibiruApplicationServlet">
+		<property name="applicationAccessor" ref="applicationAccessor" />
+	</bean>
+
+	<bean name="messageProviders" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="sampleMessageProvider" />
+				<ref bean="applicationMessageProvider" />
+				<ref bean="securityMessageProvider" />
+				<ref bean="reportMessageProvider" />
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+    ">
+
+	<bean name="authenticationService"
+		class="ar.com.oxen.nibiru.security.spring.SpringAuthenticationService">
+		<property name="session" ref="nibiruSession" />
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="securityManager" ref="securityManager" />
+		<property name="profile" ref="profile" />
+	</bean>
+
+	<bean name="authorizationService"
+		class="ar.com.oxen.nibiru.security.spring.SpringAuthorizationService">
+		<property name="session" ref="nibiruSession" />
+	</bean>
+
+	<bean name="profile" class="ar.com.oxen.nibiru.security.spring.SessionProfile">
+		<property name="session" ref="nibiruSession" />
+	</bean>
+	
+	<bean name="hashService"
+		class="ar.com.oxen.nibiru.security.spring.PasswordEncoderHashService">
+		<property name="passwordEncoder" ref="passwordEncoder" />
+	</bean>
+	
+	<security:authentication-manager id="authenticationManager">
+		<security:authentication-provider
+			user-service-ref="userDetailsService">
+			<security:password-encoder ref="passwordEncoder"/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<bean name="userDetailsService"
+		class="ar.com.oxen.nibiru.security.spring.SecurityManagerUserDetailsService">
+		<property name="securityManager" ref="securityManager" />
+		<property name="hashService" ref="hashService" />
+	</bean>
+	
+	<bean name="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/>
+</beans>

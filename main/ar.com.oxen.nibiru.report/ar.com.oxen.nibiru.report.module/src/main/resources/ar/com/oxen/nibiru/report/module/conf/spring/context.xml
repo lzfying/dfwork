@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean name="reportMessageProvider"
+		class="ar.com.oxen.nibiru.i18n.generic.ResourceBundleMessageProvider">
+		<property name="baseName" value="ar.com.oxen.nibiru.report.module.ui.i18n.messages" />
+		<property name="resourceClassLoader">
+			<bean
+				class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+				<property name="targetObject">
+					<bean
+						class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+						<property name="staticMethod" value="java.lang.Thread.currentThread" />
+						<property name="singleton" value="false" />
+					</bean>
+				</property>
+				<property name="targetMethod" value="getContextClassLoader" />
+				<property name="singleton" value="false" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.report.module.ModuleConfigurator">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="eventBus" ref="eventBus" />
+		<property name="viewFactory" ref="crudViewFactory" />
+		<property name="presenterFactory" ref="crudPresenterFactory" />
+		<property name="reportPresenterFactory">
+			<bean
+				class="ar.com.oxen.nibiru.report.module.ui.generic.GenericReportPresenterFactory">
+				<property name="eventBus" ref="eventBus" />
+			</bean>
+		</property>
+		<property name="reportViewFactory">
+			<bean
+				class="ar.com.oxen.nibiru.report.module.ui.generic.GenericReportViewFactory">
+				<property name="viewFactory" ref="viewFactory" />
+				<property name="messageSource" ref="nibiruMessageSource" />
+			</bean>
+		</property>
+	</bean>
+		
+</beans>

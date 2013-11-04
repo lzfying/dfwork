@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- Application -->
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.application.generic.ModuleConfigurator">
+		<property name="eventBus" ref="eventBus" />
+		<property name="viewFactory" ref="applicationViewFactory" />
+		<property name="presenterFactory" ref="applicationPresenterFactory" />
+		<property name="extensionPointManager" ref="extensionPointManager" />
+	</bean>
+
+	<bean name="applicationMessageProvider"
+		class="ar.com.oxen.nibiru.i18n.generic.ResourceBundleMessageProvider">
+		<property name="baseName"
+			value="ar.com.oxen.nibiru.application.generic.messages" />
+		<property name="resourceClassLoader">
+			<bean
+				class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+				<property name="targetObject">
+					<bean
+						class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+						<property name="staticMethod" value="java.lang.Thread.currentThread" />
+						<property name="singleton" value="false" />
+					</bean>
+				</property>
+				<property name="targetMethod" value="getContextClassLoader" />
+				<property name="singleton" value="false" />
+			</bean>
+		</property>
+	</bean>
+
+</beans>

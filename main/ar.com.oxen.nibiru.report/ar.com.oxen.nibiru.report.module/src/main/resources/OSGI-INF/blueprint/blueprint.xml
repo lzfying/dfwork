@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	">
+
+	<service interface="ar.com.oxen.nibiru.i18n.api.MessageProvider"
+		ref="reportMessageProvider" />
+
+	<reference id="extensionPointManager"
+		interface="ar.com.oxen.nibiru.extensionpoint.api.ExtensionPointManager" />
+
+	<reference id="eventBus"
+		interface="ar.com.oxen.commons.eventbus.api.EventBus" />
+
+	<reference id="crudViewFactory"
+		interface="ar.com.oxen.nibiru.crud.ui.api.CrudViewFactory" />
+
+	<reference id="crudPresenterFactory"
+		interface="ar.com.oxen.nibiru.crud.ui.api.CrudPresenterFactory" />
+
+	<reference id="viewFactory"
+		interface="ar.com.oxen.nibiru.ui.api.view.ViewFactory" />
+
+	<reference id="nibiruMessageSource"
+		interface="ar.com.oxen.nibiru.i18n.api.MessageSource" />
+
+
+	<bean id="reportMessageProvider"
+		class="ar.com.oxen.nibiru.i18n.generic.ResourceBundleMessageProvider">
+		<property name="baseName" value="ar.com.oxen.nibiru.report.module.ui.i18n.messages" />
+		<property name="resourceClassLoader">
+			<bean class="ar.com.oxen.nibiru.osgi.utils.BundleDelegatingClassLoader">
+				<argument ref="blueprintBundle" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.report.module.ModuleConfigurator">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="eventBus" ref="eventBus" />
+		<property name="viewFactory" ref="crudViewFactory" />
+		<property name="presenterFactory" ref="crudPresenterFactory" />
+		<property name="reportPresenterFactory">
+			<bean
+				class="ar.com.oxen.nibiru.report.module.ui.generic.GenericReportPresenterFactory">
+				<property name="eventBus" ref="eventBus" />
+			</bean>
+		</property>
+		<property name="reportViewFactory">
+			<bean
+				class="ar.com.oxen.nibiru.report.module.ui.generic.GenericReportViewFactory">
+				<property name="viewFactory" ref="viewFactory" />
+				<property name="messageSource" ref="nibiruMessageSource" />
+			</bean>
+		</property>
+	</bean>
+
+</blueprint>

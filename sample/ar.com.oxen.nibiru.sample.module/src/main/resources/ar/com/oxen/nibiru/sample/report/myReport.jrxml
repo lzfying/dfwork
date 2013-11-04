@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nibiru Test Report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ee354e11-e643-4ae4-8643-7478a9117634">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="H2 Data Adapter "/>
+	<subDataset name="NibiruDataset" uuid="2ad777d2-8a65-46d8-a90e-37b143ff85ed">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="H2 Data Adapter "/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="parameterTest" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[select * from student]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ACTIVE" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c69bbe6b-542d-4d70-9746-1ca1d3c943d8" x="210" y="2" width="340" height="30"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["You entered the parameter: " + $P{parameterTest}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="78e186fa-7893-41c8-baa6-ce6c3c084605" x="30" y="7" width="140" height="20"/>
+				<textElement/>
+				<text><![CDATA[this is a Jasper test]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement uuid="f0d8c413-14ed-4b45-8abd-9a9a98a49860" x="230" y="40" width="70" height="30"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cf78c021-dee0-40b3-b7dd-69ed0ece9a78" x="74" y="46" width="70" height="30"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

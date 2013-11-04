@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generic CRUD view
+Bundle-SymbolicName: ar.com.oxen.nibiru.crud.ui.generic.view
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: ar.com.oxen.nibiru.crud.ui.generic.view
+Import-Package: ar.com.oxen.nibiru.crud.manager.api,
+ ar.com.oxen.nibiru.crud.ui.api,
+ ar.com.oxen.nibiru.crud.ui.api.form,
+ ar.com.oxen.nibiru.crud.ui.api.list,
+ ar.com.oxen.nibiru.i18n.api,
+ ar.com.oxen.nibiru.ui.api.mvp,
+ ar.com.oxen.nibiru.ui.api.view,
+ ar.com.oxen.nibiru.ui.utils.dialog,
+ ar.com.oxen.nibiru.ui.utils.view,
+ ar.com.oxen.nibiru.validation.api

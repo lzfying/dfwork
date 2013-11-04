@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean id="applicationPresenterFactory"
+		class="ar.com.oxen.nibiru.application.generic.presenter.GenericApplicationPresenterFactory">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="profile" ref="profile" />
+		<property name="authorizationService" ref="authorizationService" />
+	</bean>
+
+</beans>

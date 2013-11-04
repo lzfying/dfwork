@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HTTP Session implementation
+Bundle-SymbolicName: ar.com.oxen.nibiru.session.http
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.http.utils,
+ ar.com.oxen.nibiru.session.api,
+ javax.servlet.http;version="2.4.0"
+Export-Package: ar.com.oxen.nibiru.session.http;uses:="ar.com.oxen.nibiru.session.api"

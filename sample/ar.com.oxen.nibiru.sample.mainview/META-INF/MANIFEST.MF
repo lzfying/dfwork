@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Custom main view sample
+Bundle-SymbolicName: ar.com.oxen.nibiru.sample.mainview
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.application.api,
+ ar.com.oxen.nibiru.application.api.about,
+ ar.com.oxen.nibiru.application.api.main,
+ ar.com.oxen.nibiru.application.generic.view,
+ ar.com.oxen.nibiru.i18n.api,
+ ar.com.oxen.nibiru.ui.api.mvp,
+ ar.com.oxen.nibiru.ui.api.view,
+ ar.com.oxen.nibiru.ui.utils.view

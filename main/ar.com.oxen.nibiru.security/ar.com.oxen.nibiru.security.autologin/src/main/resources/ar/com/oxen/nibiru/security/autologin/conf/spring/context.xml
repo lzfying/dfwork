@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean id="authenticationService"
+		class="ar.com.oxen.nibiru.security.autologin.AutologinAuthenticationService" />
+
+	<bean id="authorizationService"
+		class="ar.com.oxen.nibiru.security.autologin.AutologinAuthorizationService" />
+
+	<bean id="hashService"
+		class="ar.com.oxen.nibiru.security.autologin.AutologinHashService" />
+
+	<bean id="profile"
+		class="ar.com.oxen.nibiru.security.autologin.AutologinProfile" />
+
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.security.autologin.ModuleConfigurator">
+		<property name="eventBus" ref="eventBus" />
+	</bean>
+
+</beans>

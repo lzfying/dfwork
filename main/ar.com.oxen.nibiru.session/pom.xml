@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ar.com.oxen.nibiru</artifactId>
+		<groupId>ar.com.oxen.nibiru</groupId>
+		<version>0.4-SNAPSHOT</version>
+	</parent>
+	<groupId>ar.com.oxen.nibiru</groupId>
+	<artifactId>ar.com.oxen.nibiru.session</artifactId>
+	<packaging>pom</packaging>
+	<name>ar.com.oxen.nibiru.session</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<modules>
+		<module>ar.com.oxen.nibiru.session.api</module>
+		<module>ar.com.oxen.nibiru.session.http</module>
+		<module>ar.com.oxen.nibiru.session.http.blueprint</module>
+	</modules>
+</project>

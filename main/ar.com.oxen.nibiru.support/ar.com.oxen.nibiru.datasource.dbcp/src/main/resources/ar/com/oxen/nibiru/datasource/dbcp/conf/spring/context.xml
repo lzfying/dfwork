@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="$db{driverClassName}" />
+		<property name="url" value="$db{url}" />
+		<property name="username" value="$db{username}" />
+		<property name="password" value="$db{password}" />
+		<property name="validationQuery" value="$db{validationQuery}" />
+		<property name="initialSize" value="2" />
+		<property name="maxActive" value="5" />
+		<property name="maxIdle" value="2" />
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:database.properties" />
+		<property name="placeholderPrefix" value="$db{" />
+	</bean>
+</beans>

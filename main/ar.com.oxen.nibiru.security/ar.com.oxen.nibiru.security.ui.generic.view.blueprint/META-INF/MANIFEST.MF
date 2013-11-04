@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Security UI generic view blueprint configuration
+Bundle-SymbolicName: ar.com.oxen.nibiru.security.ui.generic.view.blueprint
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.i18n.api,
+ ar.com.oxen.nibiru.security.ui.api,
+ ar.com.oxen.nibiru.security.ui.generic.view,
+ ar.com.oxen.nibiru.ui.api.view

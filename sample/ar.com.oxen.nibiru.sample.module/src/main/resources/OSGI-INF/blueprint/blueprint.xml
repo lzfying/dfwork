@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	">
+
+	<service interface="ar.com.oxen.nibiru.i18n.api.MessageProvider"
+		ref="sampleMessageProvider" />
+
+	<reference id="messageSource" availability="optional"
+		interface="ar.com.oxen.nibiru.i18n.api.MessageSource" />
+
+	<reference id="extensionPointManager"
+		interface="ar.com.oxen.nibiru.extensionpoint.api.ExtensionPointManager" />
+
+	<reference id="eventBus" interface="ar.com.oxen.commons.eventbus.api.EventBus" />
+
+	<reference id="viewFactory"
+		interface="ar.com.oxen.nibiru.ui.api.view.ViewFactory" />
+
+	<reference id="crudViewFactory"
+		interface="ar.com.oxen.nibiru.crud.ui.api.CrudViewFactory" />
+
+	<reference id="crudPresenterFactory"
+		interface="ar.com.oxen.nibiru.crud.ui.api.CrudPresenterFactory" />
+
+	<reference id="transactionTemplate"
+		interface="ar.com.oxen.nibiru.transaction.api.TransactionTemplate" />
+
+	<reference id="wrapperFactory" interface="ar.com.oxen.commons.bean.api.WrapperFactory" />
+
+	<reference id="authorizationService"
+		interface="ar.com.oxen.nibiru.security.api.AuthorizationService" />
+
+	<reference id="mailService" interface="ar.com.oxen.nibiru.mail.api.MailService" />
+
+	<reference id="dataSource" interface="javax.sql.DataSource" />
+
+	<reference id="nibiruSession" interface="ar.com.oxen.nibiru.session.api.Session" />
+
+	<reference id="conversationFactory" interface="ar.com.oxen.nibiru.conversation.api.ConversationFactory" />
+
+	<reference id="conversationAccessor" interface="ar.com.oxen.nibiru.conversation.api.ConversationAccessor" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory"
+		filter="(osgi.unit.name=nibiruSample_conversation)" />
+
+	<reference id="profile" interface="ar.com.oxen.nibiru.security.api.Profile"
+		availability="optional" />
+
+	<bean id="sampleMessageProvider"
+		class="ar.com.oxen.nibiru.i18n.generic.ResourceBundleMessageProvider">
+		<property name="baseName" value="ar.com.oxen.nibiru.sample.ui.i18n.messages" />
+		<property name="resourceClassLoader">
+			<bean class="ar.com.oxen.nibiru.osgi.utils.BundleDelegatingClassLoader">
+				<argument ref="blueprintBundle" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.sample.crud.CrudSampleModuleConfigurator">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="eventBus" ref="eventBus" />
+		<property name="viewFactory" ref="crudViewFactory" />
+		<property name="presenterFactory" ref="crudPresenterFactory" />
+		<property name="crudFactory" ref="crudFactory" />
+		<property name="mailService" ref="mailService" />
+	</bean>
+
+	<bean id="crudFactory" class="ar.com.oxen.nibiru.crud.manager.jpa.JpaCrudFactory">
+		<property name="entityManager">
+			<bean factory-ref="entityManagerFactory" factory-method="createEntityManager" />
+		</property>
+		<property name="wrapperFactory" ref="wrapperFactory" />
+		<property name="authorizationService" ref="authorizationService" />
+		<property name="transactionTemplate" ref="transactionTemplate" />
+		<property name="profile" ref="profile" />
+	</bean>
+	
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.sample.report.ReportSampleModuleConfigurator">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="eventBus" ref="eventBus" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.sample.showcase.ShowcaseModuleConfigurator">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="eventBus" ref="eventBus" />
+		<property name="viewFactory" ref="showcaseViewFactory" />
+		<property name="presenterFactory" ref="showcasePresenterFactory" />
+	</bean>
+
+	<bean id="showcaseViewFactory" class="ar.com.oxen.nibiru.sample.showcase.ShowcaseViewFactory">
+		<property name="viewFactory" ref="viewFactory" />
+		<property name="messageSource" ref="messageSource" />
+	</bean>
+
+	<bean id="showcasePresenterFactory"
+		class="ar.com.oxen.nibiru.sample.showcase.ShowcasePresenterFactory">
+		<property name="eventBus" ref="eventBus" />
+		<property name="mailService" ref="mailService" />
+		<property name="session" ref="nibiruSession" />
+		<property name="conversationFactory" ref="conversationFactory" />
+		<property name="conversationAccessor" ref="conversationAccessor" />
+	</bean>
+</blueprint>

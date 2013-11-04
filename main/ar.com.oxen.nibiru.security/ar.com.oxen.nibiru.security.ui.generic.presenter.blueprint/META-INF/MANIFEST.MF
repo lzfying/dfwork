@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Security UI generic presenter blueprint configuration
+Bundle-SymbolicName: ar.com.oxen.nibiru.security.ui.generic.presenter.blueprint
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.commons.eventbus.api,
+ ar.com.oxen.nibiru.security.api,
+ ar.com.oxen.nibiru.security.manager.api,
+ ar.com.oxen.nibiru.security.ui.api,
+ ar.com.oxen.nibiru.security.ui.generic.presenter

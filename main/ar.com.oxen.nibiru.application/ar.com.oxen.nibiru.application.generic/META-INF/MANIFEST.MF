@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generic application module
+Bundle-SymbolicName: ar.com.oxen.nibiru.application.generic
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.commons.bean.api,
+ ar.com.oxen.commons.eventbus.api,
+ ar.com.oxen.nibiru.application.api,
+ ar.com.oxen.nibiru.application.api.about,
+ ar.com.oxen.nibiru.application.api.main,
+ ar.com.oxen.nibiru.extensionpoint.api,
+ ar.com.oxen.nibiru.i18n.api,
+ ar.com.oxen.nibiru.i18n.generic,
+ ar.com.oxen.nibiru.module.utils,
+ ar.com.oxen.nibiru.security.api,
+ ar.com.oxen.nibiru.ui.api.extension,
+ ar.com.oxen.nibiru.ui.api.mvp,
+ ar.com.oxen.nibiru.ui.utils.extension,
+ ar.com.oxen.nibiru.ui.utils.mvp
+Export-Package: ar.com.oxen.nibiru.application.generic

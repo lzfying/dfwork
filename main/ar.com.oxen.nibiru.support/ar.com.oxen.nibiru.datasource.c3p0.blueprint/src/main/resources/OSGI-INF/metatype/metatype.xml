@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="
+         http://www.osgi.org/xmlns/metatype/v1.1.0 http://www.osgi.org/xmlns/metatype/v1.1.0/metatype.xsd
+     ">
+     <OCD description="Nibiru Datasource configuration" name="Nibiru Datasource" id="ar.com.oxen.nibiru.datasource">
+         <AD name="Database driver" id="driverClassName" required="true" type="String" default="org.h2.Driver" description="Database driver"/>
+         <AD name="Database URL" id="url" required="true" type="String" default="jdbc:h2:~/nibiruDb/nibiruDb" description="Database URL"/>
+         <AD name="Username" id="username" required="true" type="String" default="sa" description="Username"/>
+         <AD name="Password" id="password" required="true" type="String" default="" description="Password"/>
+         <AD name="Database validation query" id="validationQuery" required="true" type="String" default="SELECT 1" description="Database validation query"/>
+     </OCD>
+     <Designate pid="ar.com.oxen.nibiru.datasource">
+         <Object ocdref="ar.com.oxen.nibiru.datasource"/>
+     </Designate>
+</MetaData>

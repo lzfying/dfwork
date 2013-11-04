@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="
+         http://www.osgi.org/xmlns/metatype/v1.1.0 http://www.osgi.org/xmlns/metatype/v1.1.0/metatype.xsd
+     ">
+     <OCD description="Nibiru Mail configuration" name="Nibiru Mail" id="ar.com.oxen.nibiru.mail">
+         <AD name="Username" id="username" required="false" type="String" default="johndoe@gmail.com" description="Username"/>
+         <AD name="Password" id="password" required="false" type="String" default="" description="Password"/>
+         <AD name="Host" id="host" required="true" type="String" default="smtp.gmail.com" description="Host"/>
+         <AD name="Port" id="port" required="true" type="Integer" default="587" description="Port"/>
+         <AD name="Start TLS" id="startTls" required="true" type="Boolean" default="true" description="Start TLS"/>
+     </OCD>
+     <Designate pid="ar.com.oxen.nibiru.mail">
+         <Object ocdref="ar.com.oxen.nibiru.mail"/>
+     </Designate>
+</MetaData>

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generic Extension point implementation
+Bundle-SymbolicName: ar.com.oxen.nibiru.extensionpoint.generic
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.extensionpoint.api,
+ com.google.common.collect;version="9.0.0"
+Export-Package: ar.com.oxen.nibiru.extensionpoint.generic

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<bean name="securityMessageProvider" class="ar.com.oxen.nibiru.i18n.generic.ResourceBundleMessageProvider">
+		<property name="baseName" value="ar.com.oxen.nibiru.security.module.ui.i18n.messages"/>
+		<property name="resourceClassLoader">
+			<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+				<property name="targetObject">
+					<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+						<property name="staticMethod" value="java.lang.Thread.currentThread"/>
+						<property name="singleton" value="false"/>
+					</bean>
+				</property>
+				<property name="targetMethod" value="getContextClassLoader"/>
+				<property name="singleton" value="false"/>
+			</bean>
+		</property>
+	</bean>
+
+	<bean init-method="startup" destroy-method="shutdown"
+		class="ar.com.oxen.nibiru.security.module.ModuleConfigurator">
+		<property name="extensionPointManager" ref="extensionPointManager" />
+		<property name="eventBus" ref="eventBus" />
+		<property name="authenticationService" ref="authenticationService" />
+		<property name="viewFactory" ref="crudViewFactory" />
+		<property name="presenterFactory" ref="crudPresenterFactory" />
+		<property name="securityViewFactory" ref="securityViewFactory" />
+		<property name="securityPresenterFactory" ref="securityPresenterFactory" />
+		<property name="crudFactory" ref="crudFactory" />
+	</bean>
+
+	<bean id="crudFactory" class="ar.com.oxen.nibiru.crud.manager.jpa.JpaCrudFactory">
+		<property name="entityManager">
+			<bean
+				class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+				<property name="targetObject" ref="securityManagerConversationEmFactory" />
+				<property name="targetMethod" value="createEntityManager" />
+				<property name="singleton" value="false" />
+			</bean>
+		</property>
+		<property name="wrapperFactory" ref="wrapperFactory" />
+		<property name="authorizationService" ref="authorizationService" />
+		<property name="transactionTemplate" ref="transactionTemplate" />
+		<property name="profile" ref="profile" />
+	</bean>
+
+	<!-- JPA -->
+	<bean id="securityManagerConversationEmFactory"
+		class="ar.com.oxen.nibiru.jpa.ConversationEntityManagerFactory">
+		<constructor-arg ref="securityManagerEmFactory"/>
+		<constructor-arg ref="conversationAccessor"/>
+		<constructor-arg ref="transactionTemplate"/>
+	</bean>
+	
+</beans>

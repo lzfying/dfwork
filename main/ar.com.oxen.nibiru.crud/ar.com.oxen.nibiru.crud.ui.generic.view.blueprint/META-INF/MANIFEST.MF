@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generic CRUD view blueprint configuration
+Bundle-SymbolicName: ar.com.oxen.nibiru.crud.ui.generic.view.blueprint
+Bundle-Version: 0.4.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ar.com.oxen.nibiru.crud.ui.api,
+ ar.com.oxen.nibiru.crud.ui.generic.view,
+ ar.com.oxen.nibiru.i18n.api,
+ ar.com.oxen.nibiru.ui.api.view
