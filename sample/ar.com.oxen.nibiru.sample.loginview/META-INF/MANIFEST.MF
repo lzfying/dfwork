@@ -11,4 +11,8 @@ Import-Package: ar.com.oxen.nibiru.i18n.api,
  ar.com.oxen.nibiru.ui.api.view,
  ar.com.oxen.nibiru.ui.utils.mvp,
  ar.com.oxen.nibiru.ui.utils.view,
- ar.com.oxen.nibiru.validation.api
+ ar.com.oxen.nibiru.validation.api,
+ ar.com.oxen.nibiru.ui.vaadin.view.adapter,
+ ar.com.oxen.nibiru.ui.vaadin.api
+Require-Bundle: com.vaadin;bundle-version="6.8.0"
+ 

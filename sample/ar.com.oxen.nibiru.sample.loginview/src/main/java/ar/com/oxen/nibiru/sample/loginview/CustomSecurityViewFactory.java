@@ -5,15 +5,17 @@ import ar.com.oxen.nibiru.security.ui.api.ChangePasswordView;
 import ar.com.oxen.nibiru.security.ui.api.LoginView;
 import ar.com.oxen.nibiru.security.ui.api.SecurityViewFactory;
 import ar.com.oxen.nibiru.ui.api.view.ViewFactory;
+import ar.com.oxen.nibiru.ui.vaadin.api.ApplicationAccessor;
 import ar.com.oxen.nibiru.security.ui.generic.view.GenericChangePasswordView;
 
 public class CustomSecurityViewFactory implements SecurityViewFactory {
 	private ViewFactory viewFactory;
 	private MessageSource messageSource;
-
+	private ApplicationAccessor applicationAccessor;
+	
 	@Override
 	public LoginView createLoginView() {
-		return new CustomLoginView(this.viewFactory, this.messageSource);
+		return new CustomLoginView(this.applicationAccessor,this.viewFactory, this.messageSource);
 	}
 
 	@Override
@@ -28,5 +30,9 @@ public class CustomSecurityViewFactory implements SecurityViewFactory {
 
 	public void setMessageSource(MessageSource messageSource) {
 		this.messageSource = messageSource;
+	}
+	
+	public void setApplicationAccessor(ApplicationAccessor applicationAccessor) {
+		this.applicationAccessor = applicationAccessor;
 	}
 }

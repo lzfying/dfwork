@@ -37,7 +37,6 @@ import ar.com.oxen.nibiru.ui.vaadin.view.adapter.TableAdapter;
 import ar.com.oxen.nibiru.ui.vaadin.view.adapter.TextAreaAdapter;
 import ar.com.oxen.nibiru.ui.vaadin.view.adapter.TextFieldAdapter;
 import ar.com.oxen.nibiru.ui.vaadin.view.adapter.TimeFieldAdapter;
-import ar.com.oxen.nibiru.ui.vaadin.view.adapter.WindowAdapter;
 
 import com.vaadin.data.util.ObjectProperty;
 import com.vaadin.ui.Form;
@@ -55,14 +54,9 @@ public class LayoutViewFactory implements ViewFactory {
 	}
 
 	@Override
-	public Window buildWindow(Window.Style style) {
-		if (style == Window.Style.LIST) {
-			return new LayoutWindowAdapter(new com.vaadin.ui.VerticalLayout(),
-					this.applicationAccessor.getApplication().getMainWindow());
-		} else {
-			return new WindowAdapter(new com.vaadin.ui.Window(),
-					this.applicationAccessor.getApplication().getMainWindow());
-		}
+	public Window buildWindow() {
+		return new LayoutWindowAdapter(new com.vaadin.ui.VerticalLayout(),
+				this.applicationAccessor.getApplication().getMainWindow());
 	}
 
 	@Override

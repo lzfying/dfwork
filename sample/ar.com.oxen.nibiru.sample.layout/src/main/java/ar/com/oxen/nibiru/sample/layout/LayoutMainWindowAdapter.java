@@ -5,7 +5,6 @@ import ar.com.oxen.nibiru.ui.api.view.HasMenuItems;
 import ar.com.oxen.nibiru.ui.vaadin.view.adapter.AbstractWindowAdapter;
 
 import com.vaadin.Application;
-import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
@@ -39,7 +38,6 @@ public class LayoutMainWindowAdapter extends AbstractWindowAdapter implements
 		upperContainer.addComponent(this.infoContainer);
 		
 		this.mainContainer = new TabSheet();
-		mainContainer.setSizeFull();
 		getAdapted().addComponent(mainContainer);
 		adapted.setData(mainContainer);
 	}

@@ -1,21 +1,25 @@
 package ar.com.oxen.nibiru.sample.mainview;
 
+import javax.sql.DataSource;
+
 import ar.com.oxen.nibiru.application.api.ApplicationViewFactory;
 import ar.com.oxen.nibiru.application.api.about.AboutView;
 import ar.com.oxen.nibiru.application.api.main.MainView;
 import ar.com.oxen.nibiru.i18n.api.LocaleHolder;
 import ar.com.oxen.nibiru.i18n.api.MessageSource;
 import ar.com.oxen.nibiru.ui.api.view.ViewFactory;
+import ar.com.oxen.nibiru.ui.vaadin.api.ApplicationAccessor;
 import ar.com.oxen.nibiru.application.generic.view.GenericAboutView;
 
 public class CustomApplicationViewFactory implements ApplicationViewFactory {
 	private ViewFactory viewFactory;
 	private MessageSource messageSource;
 	private LocaleHolder localeHolder;
-
+	private ApplicationAccessor applicationAccessor;
+	
 	@Override
 	public MainView buildMainView() {
-		return new CustomMainView(this.viewFactory, this.messageSource,
+		return new CustomMainView(applicationAccessor ,this.viewFactory, this.messageSource,
 				this.localeHolder.getLocale());
 	}
 
@@ -35,4 +39,11 @@ public class CustomApplicationViewFactory implements ApplicationViewFactory {
 	public void setLocaleHolder(LocaleHolder localeHolder) {
 		this.localeHolder = localeHolder;
 	}
+
+	public void setApplicationAccessor(ApplicationAccessor applicationAccessor) {
+		this.applicationAccessor = applicationAccessor;
+	}
+
+
+	
 }

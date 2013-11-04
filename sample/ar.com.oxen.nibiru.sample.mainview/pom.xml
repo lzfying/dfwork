@@ -21,5 +21,10 @@
 			<artifactId>ar.com.oxen.nibiru.application.generic.view</artifactId>
 			<version>${nibiru-version}</version>
 		</dependency>
+		<dependency>
+			<groupId>ar.com.oxen.nibiru.ui</groupId>
+			<artifactId>ar.com.oxen.nibiru.ui.vaadin</artifactId>
+			<version>${nibiru-version}</version>
+		</dependency>
 	</dependencies>
 </project>

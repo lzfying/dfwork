@@ -18,3 +18,4 @@ Import-Package: ar.com.oxen.commons.eventbus.api,
  com.vaadin.terminal;version="6.8.9",
  com.vaadin.ui;version="6.8.9",
  org.vaadin.peter.contextmenu
+Export-Package: ar.com.oxen.nibiru.sample.layout

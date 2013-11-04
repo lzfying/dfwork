@@ -14,9 +14,11 @@ public class LayoutWindowAdapter extends AbstractAdapter<Layout> implements
 		ar.com.oxen.nibiru.ui.api.view.Window {
 	private TabSheet mainWindow;
 	private CloseHandler closeHandler;
+	private Window parentnWindow;
 
 	public LayoutWindowAdapter(Layout adapted, Window mainWindow) {
 		super(adapted);
+		this.parentnWindow=mainWindow;
 		this.mainWindow = (TabSheet) mainWindow.getData();
 		getAdapted().addListener(new ComponentDetachListener() {
 			private static final long serialVersionUID = -4704694231947001379L;
@@ -33,6 +35,12 @@ public class LayoutWindowAdapter extends AbstractAdapter<Layout> implements
 
 	@Override
 	public void show() {
+		System.out.println(getAdapted().getCaption() + ":"
+				+ mainWindow.getHeight());
+		System.out.println("parentnWindow :"
+				+ parentnWindow.getHeight());
+		System.out.println("mainlayout :"
+				+ parentnWindow.getContent().getHeight());
 		if (mainWindow.getTab(getAdapted()) == null) {
 			TabSheet.Tab tab = mainWindow.addTab(getAdapted());
 			tab.setClosable(true);

@@ -12,10 +12,14 @@
 
 	<reference id="nibiruMessageSource" interface="ar.com.oxen.nibiru.i18n.api.MessageSource" />
 
+	<reference id="applicationAccessor"
+		interface="ar.com.oxen.nibiru.ui.vaadin.api.ApplicationAccessor" />
+
 	<bean id="securityViewFactory"
 		class="ar.com.oxen.nibiru.sample.loginview.CustomSecurityViewFactory">
 		<property name="viewFactory" ref="viewFactory" />
 		<property name="messageSource" ref="nibiruMessageSource" />
+		<property name="applicationAccessor" ref="applicationAccessor" />
 	</bean>
 
 </blueprint>

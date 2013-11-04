@@ -7,18 +7,40 @@
 
 	<service ref="applicationViewFactory"
 		interface="ar.com.oxen.nibiru.application.api.ApplicationViewFactory" />
+		
+	<service interface="ar.com.oxen.nibiru.i18n.api.MessageProvider"
+		ref="mainViewMessageProvider" />
 
 	<reference id="viewFactory" interface="ar.com.oxen.nibiru.ui.api.view.ViewFactory" />
 
 	<reference id="localeHolder" interface="ar.com.oxen.nibiru.i18n.api.LocaleHolder" />
 
 	<reference id="nibiruMessageSource" interface="ar.com.oxen.nibiru.i18n.api.MessageSource" />
+	
+	<reference id="applicationAccessor"
+		interface="ar.com.oxen.nibiru.ui.vaadin.api.ApplicationAccessor" />
+		
+		
+	
+	
+	<bean id="mainViewMessageProvider"
+		class="ar.com.oxen.nibiru.i18n.generic.ResourceBundleMessageProvider">
+		<property name="baseName" value="ar.com.oxen.nibiru.sample.mainview.ui.i18n.messages" />
+		<property name="resourceClassLoader">
+			<bean class="ar.com.oxen.nibiru.osgi.utils.BundleDelegatingClassLoader">
+				<argument ref="blueprintBundle" />
+			</bean>
+		</property>
+	</bean>
+		
 
 	<bean id="applicationViewFactory"
 		class="ar.com.oxen.nibiru.sample.mainview.CustomApplicationViewFactory">
 		<property name="viewFactory" ref="viewFactory" />
 		<property name="messageSource" ref="nibiruMessageSource" />
 		<property name="localeHolder" ref="localeHolder" />
+		<property name="applicationAccessor" ref="applicationAccessor" />
+		
 	</bean>
 
 </blueprint>
